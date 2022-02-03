@@ -83,4 +83,13 @@ async function addToPage() {
   loading.remove();         
 }
 
-window.onload = () => { addToPage(); getSavedCartItems(cart, cartItemClickListener); };
+function addEventToCartItemsAfterLoad(callback) {
+  const items = [...cart.children];
+  items.forEach((item) => item.addEventListener('click', callback));
+}
+
+window.onload = () => { 
+  addToPage(); 
+  getSavedCartItems(cart);
+  addEventToCartItemsAfterLoad(cartItemClickListener);
+ };

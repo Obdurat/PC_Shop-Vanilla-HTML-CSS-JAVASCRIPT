@@ -1,9 +1,7 @@
-const getSavedCartItems = (element, callback) => {
+const getSavedCartItems = (element) => {
   // seu código aqui
   const cart = element;
-  cart.innerHTML = localStorage.getItem('cartItems');
-  const items = [...cart.children];
-  items.forEach((item) => item.addEventListener('click', callback));
+  cart.innerHTML = localStorage.getItem('cartItems');  
 };
 
 if (typeof module !== 'undefined') {

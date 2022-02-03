@@ -11,10 +11,10 @@ describe('4 - Teste a função getSavedCartItems', () => {
     getSavedCartItems(cart);
     expect(localStorage.getItem).toHaveBeenCalled();
   });
-  test('Ao executar getSavedCartItems, o método localStorage.getItem é chamado com o cartItems como parâmetro.', () => {
+  test('Ao executar getSavedCartItems, o método localStorage.getItem é chamado com cartItems como parâmetro.', () => {
     document.body.innerHTML = '<ol class="cart__items"></ol>';
     const cart = document.querySelector('.cart__items');
     getSavedCartItems(cart);
     expect(localStorage.getItem).toHaveBeenCalledWith('cartItems');    
-  });
+  }); 
 });
