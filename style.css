@@ -13,6 +13,7 @@ body {
   position: relative;
   background-color: rgb(3, 52, 45);
   display: flex;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 60px;
@@ -26,14 +27,16 @@ body {
   display: none;
   position: relative;
   border-radius: 50%;
-  background-color: rgb(250, 99, 99);
+  background-color: rgb(255, 0, 0);
   height: 20px;
   width: 20px;
   text-align: center;
   line-height: 22px;
-  left: -20px;
+  left: -50px;
   top: -10px;
   color: white;
+  font-size: small;
+  font-weight: 900;
 }
 
 .title {
@@ -58,6 +61,7 @@ body {
 
 #cart-icon {
   cursor: pointer;
+  margin-right: 30px;
 }
 
 .container-cartTitle:after {
@@ -94,8 +98,7 @@ body {
 .container {
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  background-color: rgb(240, 240, 147);
+  width: 100%;  
 }
 
 .title strong {
@@ -103,8 +106,7 @@ body {
 }
 
 .items {
-  display: flex;
-  flex-basis: 70%;
+  display: flex;   
   flex-wrap: wrap;
   justify-content: center;
   margin: 40px 0;
@@ -172,15 +174,16 @@ body {
   flex-flow: column wrap;
   background-color: rgb(241, 241, 238);
   height: 100vh;
-  position: fixed;
-  width: 25rem;
-  transform: rotateX(-90deg);   
-  transition: 0.5s;
+  position: absolute;
+  width: 28rem;
+  transform: rotateX(-90deg);
+  transform-origin: top;   
+  transition: 0.5s ease-in-out;
   right: 0;  
 }
 
 .cart .cart__items {  
-  height: 500px;
+  height: 80vh;
   overflow-y: scroll;
 }
 
@@ -193,7 +196,9 @@ body {
   padding: 10px;
   border-radius: 15px;
   background-color: white;
-  box-shadow: inset 0 0 1em gold, 0px 0px 1em rgba(100, 112, 226, 0.816);   
+  box-shadow: inset 0 0 1em gold, 0px 0px 1em rgba(100, 112, 226, 0.816);
+  animation: cart_item 0.3s;
+  transform-origin: left;       
 }
 
 .cart-item-info {
@@ -236,6 +241,13 @@ body {
   margin: 0 auto;
   border: 2px solid rgb(5, 52, 219);
   background-color: rgb(249, 249, 246);
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.empty-cart:hover {
+  background-color: rgb(5, 52, 219);
+  color: white;
 }
 
 .total-price {
@@ -247,4 +259,14 @@ body {
   display: flex;
   color: white;
   margin-right: 50px;
+}
+
+@keyframes cart_item {
+  from { transform: scaleX(0%); }
+  to   { transform: scaleX(100%); }
+}
+
+@keyframes cart_counter {
+  from { transform: scale(1.5); }
+  to { transform: scale(1); }  
 }

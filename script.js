@@ -15,6 +15,10 @@ function cartCounting() {
     cartCounter.style.display = 'initial';
     cartCounter.innerText = cart.children.length;
   }
+  cartCounter.style.animation = 'cart_counter 0.5s';
+  setTimeout(() => {
+    cartCounter.style.animation = '';
+  }, 500);
 }
 
 function createProductImageElement(imageSource) {
@@ -118,11 +122,13 @@ function addEventToCartItemsAfterLoad(callback) {
   });
 }
 
+const rotationAnimation = 'rotateX(0deg)';
+
 cartIcon.addEventListener('click', () => {
-  if (cartContainer.style.transform === 'rotateX(0deg)') {
+  if (cartContainer.style.transform === rotationAnimation) {
     cartContainer.style.transform = 'rotateX(-90deg)';
   } else {
-    cartContainer.style.transform = 'rotateX(0deg)';
+    cartContainer.style.transform = rotationAnimation;
   }  
 });
 
