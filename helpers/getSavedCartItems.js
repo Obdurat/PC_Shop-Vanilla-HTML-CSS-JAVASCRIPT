@@ -1,5 +1,4 @@
 const getSavedCartItems = (carts, prices) => {
-  // seu código aqui
   const cart = carts;
   const price = prices;
   cart.innerHTML = localStorage.getItem('cartItems');
